@@ -1,8 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../redux/counter/counterSlice";
-import { createLogger } from "redux-logger";
-
-const logger = createLogger();
+import logger from "./middleware/logger";
 
 const store = configureStore({
   reducer: {
