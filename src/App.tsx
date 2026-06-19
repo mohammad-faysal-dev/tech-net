@@ -5,10 +5,11 @@ import {
   increment,
   incrementByAmount,
 } from "./redux/counter/counterSlice";
+import { useAppDispatch, useAppSelector } from "./redux/hook";
 
 const App = () => {
-  const { count } = useSelector((state: RootState) => state.counter);
-  const dispatch = useDispatch();
+  const { count } = useAppSelector((state: RootState) => state.counter);
+  const dispatch = useAppDispatch();
   return (
     <div className="flex gap-3">
       <button
@@ -24,7 +25,12 @@ const App = () => {
       >
         Decrement
       </button>
-      <button className="bolder border-2 p-4 text-green-600" onClick={() => dispatch(incrementByAmount(5))}>incrementByAmount</button>
+      <button
+        className="bolder border-2 p-4 text-green-600"
+        onClick={() => dispatch(incrementByAmount(5))}
+      >
+        incrementByAmount
+      </button>
     </div>
   );
 };
